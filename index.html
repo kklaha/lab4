@@ -11,6 +11,8 @@
             background-color: #000;
             color: #800000;
             font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
         }
         .bg-accent {
             background-color: #800000 !important;
@@ -47,22 +49,42 @@
             .order-desktop .table-section { order: 2; }
             .order-desktop .form-section { order: 3; }
         }
+        .full-width {
+            width: 100vw;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: none;
+        }
+        
+        .header-content, .footer-content {
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .footer-content p {
+            margin-bottom: 0;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
-    <header class="bg-accent text-white p-3 mb-4">
-        <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
-            <div class="d-flex align-items-center mb-2 mb-md-0">
+    <header class="bg-accent text-white p-3 mb-4 full-width">
+        <div class="header-content">
+            <div class="d-flex align-items-center">
                 <img src="logo.png" alt="Логотип КубГУ" class="logo me-3">
                 <h1 class="h4 mb-0">Название сайта</h1>
             </div>
-            <nav class="d-flex flex-column flex-md-row gap-2">
+            <nav class="d-flex flex-column flex-md-row gap-2 ms-auto">
                 <a href="#" class="text-white text-decoration-none px-3 py-2 bg-opacity-75 rounded">Ссылка меню 1</a>
                 <a href="#" class="text-white text-decoration-none px-3 py-2 bg-opacity-75 rounded">Ссылка 2</a>
                 <a href="#" class="text-white text-decoration-none px-3 py-2 bg-opacity-75 rounded">Ссылка 3</a>
             </nav>
         </div>
     </header>
+    
     <main class="container-fluid px-4 order-mobile-first order-desktop">
         <div class="row g-4">
             <section class="col-12 links-section">
@@ -169,12 +191,11 @@
                     <button type="submit" class="btn btn-accent text-white w-100">Сохранить</button>
                 </form>
             </section>
-
         </div>
     </main>
-    <footer class="bg-accent text-white text-center py-4 mt-5">
-        <div class="container">
-            <p class="mb-0">&copy; Сергей Синица</p>
+    <footer class="bg-accent text-white py-4 mt-5 full-width">
+        <div class="footer-content">
+            <p>&copy; Николай Овсепян</p>
         </div>
     </footer>
 </body>
