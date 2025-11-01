@@ -40,6 +40,12 @@
         table tr:nth-child(even) {
             background-color: rgba(128, 0, 0, 0.1);
         }
+        .max-width-container {
+            max-width: 968px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .order-mobile-first .links-section { order: 2; }
         .order-mobile-first .table-section { order: 1; }
         .order-mobile-first .form-section { order: 3; }
@@ -49,6 +55,7 @@
             .order-desktop .table-section { order: 2; }
             .order-desktop .form-section { order: 3; }
         }
+        
         .full-width {
             width: 100vw;
             left: 0;
@@ -86,8 +93,8 @@
     </header>
     
     <main class="container-fluid px-4 order-mobile-first order-desktop">
-        <div class="row g-4">
-            <section class="col-12 links-section">
+        <div class="row g-4 justify-content-center">
+            <section class="col-12 links-section max-width-container">
                 <h2 class="mb-3 text-accent">Список гиперссылок</h2>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><a href="http://kubsu.ru/">Абсолютная ссылка на главную КубГУ</a></li>
@@ -112,7 +119,7 @@
                     <li class="list-group-item"><a href="ftp://username:password@ftp.example.com/file.pdf">FTP с авторизацией</a></li>
                 </ul>
             </section>
-            <section class="col-12 table-section">
+            <section class="col-12 table-section max-width-container">
                 <h2 class="mb-3 text-accent">Таблица</h2>
                 <div class="table-responsive">
                     <table class="table table-bordered">
@@ -135,7 +142,7 @@
                     </table>
                 </div>
             </section>
-            <section class="col-12 col-lg-8 form-section mx-auto">
+            <section class="col-12 form-section max-width-container">
                 <h2 class="mb-4 text-accent">Форма регистрации</h2>
                 <form class="bg-light p-4 rounded shadow-sm">
                     <div class="mb-3">
@@ -193,6 +200,7 @@
             </section>
         </div>
     </main>
+    
     <footer class="bg-accent text-white py-4 mt-5 full-width">
         <div class="footer-content">
             <p>&copy; Николай Овсепян</p>
@@ -200,4 +208,3 @@
     </footer>
 </body>
 </html>
-
