@@ -65,7 +65,24 @@
             max-width: none;
         }
         
-        .header-content, .footer-content {
+        .header-content {
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .header-nav {
+                margin-left: auto;
+            }
+        }
+        
+        .footer-content {
             display: flex;
             align-items: center;
             padding: 0 2rem;
@@ -84,7 +101,7 @@
                 <img src="logo.png" alt="Логотип КубГУ" class="logo me-3">
                 <h1 class="h4 mb-0">Название сайта</h1>
             </div>
-            <nav class="d-flex flex-column flex-md-row gap-2 ms-auto">
+            <nav class="d-flex header-nav">
                 <a href="#" class="text-white text-decoration-none px-3 py-2 bg-opacity-75 rounded">Ссылка меню 1</a>
                 <a href="#" class="text-white text-decoration-none px-3 py-2 bg-opacity-75 rounded">Ссылка 2</a>
                 <a href="#" class="text-white text-decoration-none px-3 py-2 bg-opacity-75 rounded">Ссылка 3</a>
@@ -119,6 +136,7 @@
                     <li class="list-group-item"><a href="ftp://username:password@ftp.example.com/file.pdf">FTP с авторизацией</a></li>
                 </ul>
             </section>
+
             <section class="col-12 table-section max-width-container">
                 <h2 class="mb-3 text-accent">Таблица</h2>
                 <div class="table-responsive">
@@ -142,6 +160,7 @@
                     </table>
                 </div>
             </section>
+
             <section class="col-12 form-section max-width-container">
                 <h2 class="mb-4 text-accent">Форма регистрации</h2>
                 <form class="bg-light p-4 rounded shadow-sm">
