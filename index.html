@@ -45,15 +45,14 @@
             margin-left: auto;
             margin-right: auto;
         }
-
-        .order-mobile-first .links-section { order: 2; }
-        .order-mobile-first .table-section { order: 1; }
-        .order-mobile-first .form-section { order: 3; }
+        .order-mobile-first > .table-section { order: 1; }
+        .order-mobile-first > .links-section { order: 2; }
+        .order-mobile-first > .form-section { order: 3; }
 
         @media (min-width: 768px) {
-            .order-desktop .links-section { order: 1; }
-            .order-desktop .table-section { order: 2; }
-            .order-desktop .form-section { order: 3; }
+            .order-desktop > .links-section { order: 1; }
+            .order-desktop > .table-section { order: 2; }
+            .order-desktop > .form-section { order: 3; }
         }
         
         .full-width {
@@ -65,46 +64,85 @@
             max-width: none;
         }
         
-        .header-content {
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        @media (min-width: 768px) {
-            .header-content {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-            .header-nav {
-                margin-left: auto;
-            }
-        }
-        
         .footer-content {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             padding: 0 2rem;
         }
         
         .footer-content p {
             margin-bottom: 0;
-            text-align: left;
+        }
+        
+        /* Стили для хедера */
+        .header-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .header-top {
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            gap: 1rem;
+        }
+        
+        .header-nav {
+            width: 100%;
+            padding: 0 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        .header-nav a {
+            display: block;
+            text-align: center;
+            margin: 0.5rem 0;
+            text-decoration: none;
+            padding: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 0.25rem;
+        }
+        
+        @media (min-width: 768px) {
+            .header-wrapper {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header-top {
+                flex: 1;
+            }
+            .header-nav {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+                padding: 0 2rem;
+                margin-top: 0;
+                gap: 1rem;
+            }
+            .header-nav a {
+                display: inline-block;
+                margin: 0;
+                padding: 0.5rem 1rem;
+                background-color: rgba(255, 255, 255, 0.2);
+            }
         }
     </style>
 </head>
 <body>
     <header class="bg-accent text-white p-3 mb-4 full-width">
-        <div class="header-content">
-            <div class="d-flex align-items-center">
+        <div class="header-wrapper">
+            <div class="header-top">
                 <img src="logo.png" alt="Логотип КубГУ" class="logo me-3">
                 <h1 class="h4 mb-0">Название сайта</h1>
             </div>
-            <nav class="d-flex header-nav">
-                <a href="#" class="text-white text-decoration-none px-3 py-2 bg-opacity-75 rounded">Ссылка меню 1</a>
-                <a href="#" class="text-white text-decoration-none px-3 py-2 bg-opacity-75 rounded">Ссылка 2</a>
-                <a href="#" class="text-white text-decoration-none px-3 py-2 bg-opacity-75 rounded">Ссылка 3</a>
+            <nav class="header-nav">
+                <a href="#" class="text-white">Ссылка меню 1</a>
+                <a href="#" class="text-white">Ссылка 2</a>
+                <a href="#" class="text-white">Ссылка 3</a>
             </nav>
         </div>
     </header>
@@ -221,8 +259,291 @@
     </main>
     
     <footer class="bg-accent text-white py-4 mt-5 full-width">
-        <div class="footer-content">
+        <div class="container-fluid px-4 footer-content">
             <p>&copy; Николай Овсепян</p>
+            <div>
+                <a href="lab1.html" class="text-white text-decoration-none me-3">Лабораторная работа</a>
+                <a href="https://kubsu.ru/" class="me-3">
+                    <img src="http://filearchive.cnews.ru/img/cnews/2021/10/19/logos/fb/fbb6b45d9cdab04786615dda9f3644ac.gif" width="40" height="40" alt="Логотип КубГУ" class="rounded">
+                </a>
+                <a href="https://example.com/">
+                    <img src="https://via.placeholder.com/40" width="40" height="40" alt="Дополнительное изображение" class="rounded">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Название сайта</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #800000;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .bg-accent {
+            background-color: #800000 !important;
+        }
+        .text-accent {
+            color: #800000 !important;
+        }
+        .btn-accent {
+            background-color: #800000;
+            border: none;
+        }
+        .btn-accent:hover {
+            background-color: #600000;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        table th {
+            background-color: #000;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: rgba(128, 0, 0, 0.1);
+        }
+        .max-width-container {
+            max-width: 968px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .order-mobile-first > .table-section { order: 1; }
+        .order-mobile-first > .links-section { order: 2; }
+        .order-mobile-first > .form-section { order: 3; }
+
+        /* Порядок для десктопа */
+        @media (min-width: 768px) {
+            .order-desktop > .links-section { order: 1; }
+            .order-desktop > .table-section { order: 2; }
+            .order-desktop > .form-section { order: 3; }
+        }
+        
+        .full-width {
+            width: 100vw;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: none;
+        }
+        
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+        
+        .footer-content p {
+            margin-bottom: 0;
+        }
+        .header-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .header-top {
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            gap: 1rem;
+        }
+        
+        .header-nav {
+            width: 100%;
+            padding: 0 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        .header-nav a {
+            display: block;
+            text-align: center;
+            margin: 0.5rem 0;
+            text-decoration: none;
+            padding: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 0.25rem;
+        }
+        
+        @media (min-width: 768px) {
+            .header-wrapper {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header-top {
+                flex: 1;
+            }
+            .header-nav {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+                padding: 0 2rem;
+                margin-top: 0;
+                gap: 1rem;
+            }
+            .header-nav a {
+                display: inline-block;
+                margin: 0;
+                padding: 0.5rem 1rem;
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-accent text-white p-3 mb-4 full-width">
+        <div class="header-wrapper">
+            <div class="header-top">
+                <img src="logo.png" alt="Логотип КубГУ" class="logo me-3">
+                <h1 class="h4 mb-0">Название сайта</h1>
+            </div>
+            <nav class="header-nav">
+                <a href="#" class="text-white">Ссылка меню 1</a>
+                <a href="#" class="text-white">Ссылка 2</a>
+                <a href="#" class="text-white">Ссылка 3</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container-fluid px-4 order-mobile-first order-desktop">
+        <div class="row g-4 justify-content-center">
+            <section class="col-12 links-section max-width-container">
+                <h2 class="mb-3 text-accent">Список гиперссылок</h2>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="http://kubsu.ru/">Абсолютная ссылка на главную КубГУ</a></li>
+                    <li class="list-group-item"><a href="https://kubsu.ru/">HTTPS-ссылка на КубГУ</a></li>
+                    <li class="list-group-item" id="image-link">
+                        Ссылка-изображение:
+                        <br>
+                        <a href="https://kubsu.ru/">
+                            <img src="http://filearchive.cnews.ru/img/cnews/2021/10/19/logos/fb/fbb6b45d9cdab04786615dda9f3644ac.gif" width="188" height="188" alt="Логотип КубГУ">
+                        </a>
+                    </li>
+                    <li class="list-group-item"><a href="index2.html">Сокращённая внутренняя ссылка</a></li>
+                    <li class="list-group-item"><a href="#image-link">Якорь на текущую страницу</a></li>
+                    <li class="list-group-item"><a href="https://www.kubsu.ru/admission?program=ai&amp;location=kuban&amp;year=2025">Ссылка с параметрами</a></li>
+                    <li class="list-group-item"><a href="https://www.kubsu.ru/news?id=101">Ссылка с id</a></li>
+                    <li class="list-group-item"><a href="page.html">Относительная ссылка</a></li>
+                    <li class="list-group-item"><a href="about/page.html">Ссылка в каталог about</a></li>
+                    <li class="list-group-item"><a href="../vishe-page.html">На уровень выше</a></li>
+                    <li class="list-group-item"><a href="../../top-page.html">Два уровня выше</a></li>
+                    <li class="list-group-item">Контекстная ссылка: <a href="context.html">в тексте</a></li>
+                    <li class="list-group-item"><a href="https://www.kubsu.ru/index.php#news">Фрагмент стороннего сайта</a></li>
+                    <li class="list-group-item"><a href="ftp://username:password@ftp.example.com/file.pdf">FTP с авторизацией</a></li>
+                </ul>
+            </section>
+
+            <section class="col-12 table-section max-width-container">
+                <h2 class="mb-3 text-accent">Таблица</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Колонка 1</th>
+                                <th>Колонка 2</th>
+                                <th>Колонка 3</th>
+                                <th>Колонка 4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Данные 1.1</td><td>Данные 1.2</td><td>Данные 1.3</td><td>Данные 1.4</td></tr>
+                            <tr><td>Данные 2.1</td><td>Данные 2.2</td><td>Данные 2.3</td><td>Данные 2.4</td></tr>
+                            <tr><td>Данные 3.1</td><td>Данные 3.2</td><td>Данные 3.3</td><td>Данные 3.4</td></tr>
+                            <tr><td>Данные 4.1</td><td>Данные 4.2</td><td>Данные 4.3</td><td>Данные 4.4</td></tr>
+                            <tr><td>Данные 5.1</td><td>Данные 5.2</td><td>Данные 5.3</td><td>Данные 5.4</td></tr>
+                            <tr><td>Данные 6.1</td><td>Данные 6.2</td><td>Данные 6.3</td><td>Данные 6.4</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="col-12 form-section max-width-container">
+                <h2 class="mb-4 text-accent">Форма регистрации</h2>
+                <form class="bg-light p-4 rounded shadow-sm">
+                    <div class="mb-3">
+                        <label for="fullname" class="form-label">ФИО</label>
+                        <input type="text" class="form-control" id="fullname" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Телефон</label>
+                        <input type="tel" class="form-control" id="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="birthdate" class="form-label">Дата рождения</label>
+                        <input type="date" class="form-control" id="birthdate">
+                    </div>
+                    <fieldset class="mb-3">
+                        <legend class="form-label">Пол</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                            <label class="form-check-label" for="male">Мужской</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                            <label class="form-check-label" for="female">Женский</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                            <label class="form-check-label" for="other">Другое</label>
+                        </div>
+                    </fieldset>
+                    <div class="mb-3">
+                        <label for="languages" class="form-label">Любимые языки</label>
+                        <select multiple class="form-select" id="languages" size="4">
+                            <option>Python</option>
+                            <option>JavaScript</option>
+                            <option>Java</option>
+                            <option>C++</option>
+                            <option>PHP</option>
+                            <option>Pascal</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bio" class="form-label">Биография</label>
+                        <textarea class="form-control" id="bio" rows="4"></textarea>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="agreement" required>
+                        <label class="form-check-label" for="agreement">С контрактом ознакомлен(а)</label>
+                    </div>
+                    <button type="submit" class="btn btn-accent text-white w-100">Сохранить</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="bg-accent text-white py-4 mt-5 full-width">
+        <div class="container-fluid px-4 footer-content">
+            <p>&copy; Николай Овсепян</p>
+            <div>
+                <a href="lab1.html" class="text-white text-decoration-none me-3">Лабораторная работа</a>
+                <a href="https://kubsu.ru/" class="me-3">
+                    <img src="http://filearchive.cnews.ru/img/cnews/2021/10/19/logos/fb/fbb6b45d9cdab04786615dda9f3644ac.gif" width="40" height="40" alt="Логотип КубГУ" class="rounded">
+                </a>
+                <a href="https://example.com/">
+                    <img src="https://via.placeholder.com/40" width="40" height="40" alt="Дополнительное изображение" class="rounded">
+                </a>
+            </div>
         </div>
     </footer>
 </body>
