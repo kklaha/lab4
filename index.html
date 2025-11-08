@@ -40,49 +40,36 @@
         table tr:nth-child(even) {
             background-color: rgba(128, 0, 0, 0.1);
         }
-        .max-width-container {
+
+        main {
             max-width: 968px;
             margin-left: auto;
             margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
-        /* Flex-контейнер для управления порядком на мобильных */
+        .main-content {
+            display: block;
+        }
+
         @media (max-width: 767.98px) {
-            .order-mobile-first {
+            .main-content {
                 display: flex;
                 flex-direction: column;
             }
-            .order-mobile-first > .table-section {
+            .main-content > .table-section {
                 order: 1;
             }
-            .order-mobile-first > .links-section {
+            .main-content > .links-section {
                 order: 2;
             }
-            .order-mobile-first > .form-section {
+            .main-content > .form-section {
                 order: 3;
             }
         }
 
-        /* Порядок для десктопа: ссылки, таблица, форма — в строку */
-        @media (min-width: 768px) {
-            .order-desktop {
-                display: flex;
-                flex-direction: row;
-            }
-            .order-desktop > .links-section {
-                order: 1;
-                flex: 1;
-            }
-            .order-desktop > .table-section {
-                order: 2;
-                flex: 1;
-            }
-            .order-desktop > .form-section {
-                order: 3;
-                flex: 1;
-            }
-        }
-
+        /* стили хэдера*/
         .full-width {
             width: 100vw;
             left: 0;
@@ -91,37 +78,31 @@
             margin-right: auto;
             max-width: none;
         }
-
         .footer-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 2rem;
         }
-
         .footer-content p {
             margin-bottom: 0;
         }
-
         .header-wrapper {
             display: flex;
             flex-direction: column;
             width: 100%;
         }
-
         .header-top {
             display: flex;
             align-items: center;
             padding: 0 2rem;
             gap: 1rem;
         }
-
         .header-nav {
             width: 100%;
             padding: 0 2rem;
             margin-top: 0.5rem;
         }
-
         .header-nav a {
             display: block;
             text-align: center;
@@ -132,7 +113,6 @@
             color: white;
             border-radius: 0.25rem;
         }
-
         @media (min-width: 768px) {
             .header-wrapper {
                 flex-direction: row;
@@ -174,10 +154,9 @@
         </div>
     </header>
 
-    <main class="container-fluid px-4 order-mobile-first order-desktop">
-        <div class="row g-4 justify-content-center">
-            <!-- Секция таблицы -->
-            <section class="col-12 table-section max-width-container">
+    <main>
+        <div class="main-content">
+            <section class="table-section mb-4">
                 <h2 class="mb-3 text-accent">Таблица</h2>
                 <div class="table-responsive">
                     <table class="table table-bordered">
@@ -200,9 +179,7 @@
                     </table>
                 </div>
             </section>
-
-            <!-- Секция ссылок -->
-            <section class="col-12 links-section max-width-container">
+            <section class="links-section mb-4">
                 <h2 class="mb-3 text-accent">Список гиперссылок</h2>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><a href="http://kubsu.ru/">Абсолютная ссылка на главную КубГУ</a></li>
@@ -227,9 +204,7 @@
                     <li class="list-group-item"><a href="ftp://username:password@ftp.example.com/file.pdf">FTP с авторизацией</a></li>
                 </ul>
             </section>
-
-            <!-- Секция формы -->
-            <section class="col-12 form-section max-width-container">
+            <section class="form-section mb-4">
                 <h2 class="mb-4 text-accent">Форма регистрации</h2>
                 <form class="bg-light p-4 rounded shadow-sm">
                     <div class="mb-3">
@@ -295,6 +270,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
